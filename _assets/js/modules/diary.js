@@ -69,29 +69,18 @@ export const setupDiary = (element) => {
     });
     cancelButton.addEventListener("click", function (e) {
         e.preventDefault();
-        dialog.removeAttribute('open');
-        eventIdInput.value = '';
-        startInput.value = '';
-        endInput.value = '';
-        titleInput.value = '';
-        descInput.value = '';
+        closeDialog(dialog);
     });
     deleteButton.addEventListener("click", function (e) {
         e.preventDefault();
         let eventElement = element.querySelector(`#${eventIdInput.value}`);
         eventElement.remove();
-        dialog.removeAttribute('open');
-        eventIdInput.value = '';
-        startInput.value = '';
-        endInput.value = '';
-        titleInput.value = '';
-        descInput.value = '';
         populateDays(element, monthInput.value - 1, yearInput.value);
         poulateEvents(element);
+        closeDialog(dialog);
     });
     element.addEventListener("submit", function (e) {
         e.preventDefault();
-        dialog.removeAttribute('open');
         let eventStartString = `${parseInt(startInput.value.split('-')[2])}/${parseInt(startInput.value.split('-')[1])}/${parseInt(startInput.value.split('-')[0])}`;
         let eventEndString = `${parseInt(endInput.value.split('-')[2])}/${parseInt(endInput.value.split('-')[1])}/${parseInt(endInput.value.split('-')[0])}`;
         if (eventIdInput.value) {
@@ -104,6 +93,7 @@ export const setupDiary = (element) => {
             eventsList.innerHTML += `<li data-start-date="${eventStartString}" data-end-date="${eventEndString}"><strong>${titleInput.value}</strong> <span>${descInput.value}</span></li>`;
         populateDays(element, monthInput.value - 1, yearInput.value);
         poulateEvents(element);
+        closeDialog(dialog);
     });
 };
 function populateDays(element, month, year) {
@@ -126,6 +116,12 @@ function populateDays(element, month, year) {
                 arrayElement.classList.add('current');
             dayCount++;
         }
+    });
+}
+function closeDialog(dialog) {
+    dialog.removeAttribute('open');
+    dialog.querySelectorAll("input").forEach(function (input) {
+        input.value = '';
     });
 }
 function poulateEvents(element) {

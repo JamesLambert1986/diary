@@ -16,15 +16,22 @@
 
   th {
     background-color: blue;
+    height: 3rem;
+    padding: 0;
+    outline: 1px solid black;
+    position: relative;
+    vertical-align: top;
   }
 
-  th,
   td {
     height: 5rem;
     padding: 0;
     outline: 1px solid black;
     position: relative;
     vertical-align: top;
+    padding-bottom: 2em;
+    max-height: 8rem;
+    overflow: auto;
 
     &:empty {
       background: grey;
@@ -41,6 +48,15 @@
     }
   }
 
+  /*
+  tr > *:nth-child(5) ~ * {
+    display: none;
+  }
+  */
+
+  tbody tr:not(:has(td:not(:empty))){
+    display: none;
+  }
 
   .event {
     display: block;

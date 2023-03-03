@@ -9,7 +9,6 @@ export const setupDiary = (element:any) => {
   const month = date.getMonth();
   const day = date.getDate();
 
-
   const monthInput = element.querySelector('[name=month]');
   const yearInput = element.querySelector('[name=year]');
 
@@ -104,12 +103,7 @@ export const setupDiary = (element:any) => {
   cancelButton.addEventListener("click", function(e) {
 
     e.preventDefault();
-    dialog.removeAttribute('open');
-    eventIdInput.value = '';
-    startInput.value = '';
-    endInput.value = '';
-    titleInput.value = '';
-    descInput.value = '';
+    closeDialog(dialog);
   });
 
   deleteButton.addEventListener("click", function(e) {
@@ -117,26 +111,17 @@ export const setupDiary = (element:any) => {
     e.preventDefault();
 
     let eventElement = element.querySelector(`#${eventIdInput.value}`);
-
     eventElement.remove();
-
-    dialog.removeAttribute('open');
-    eventIdInput.value = '';
-    startInput.value = '';
-    endInput.value = '';
-    titleInput.value = '';
-    descInput.value = '';
-
 
     populateDays(element,monthInput.value-1,yearInput.value);
     poulateEvents(element);
+    closeDialog(dialog);
   });
 
   element.addEventListener("submit", function(e) {
 
     e.preventDefault();
-    dialog.removeAttribute('open');
-
+    
     let eventStartString = `${parseInt(startInput.value.split('-')[2])}/${parseInt(startInput.value.split('-')[1])}/${parseInt(startInput.value.split('-')[0])}`;
     let eventEndString = `${parseInt(endInput.value.split('-')[2])}/${parseInt(endInput.value.split('-')[1])}/${parseInt(endInput.value.split('-')[0])}`;
 
@@ -152,6 +137,8 @@ export const setupDiary = (element:any) => {
 
     populateDays(element,monthInput.value-1,yearInput.value);
     poulateEvents(element);
+
+    closeDialog(dialog);
   });
 
 };
@@ -185,6 +172,14 @@ function populateDays(element:any,month:number,year:number){
 
       dayCount++;
     }
+  });
+}
+
+function closeDialog(dialog){
+
+  dialog.removeAttribute('open');
+  dialog.querySelectorAll("input").forEach(function(input) {
+    input.value = '';
   });
 }
 
