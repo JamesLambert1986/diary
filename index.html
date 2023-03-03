@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="favicon.svg?cache=1676283669920">
+
+    <title>BBC Charts UI Library</title>
+    <link rel="stylesheet" href="_app/css/app.css?cache=1676283669920" />
+    <link rel="stylesheet" href="_assets/css/diary.css?cache=1676283669920" />
+
+    <script src="_assets/js/main.js?cache=1676283669920" type="module" defer></script>
+    <script src="_app/js/app.js?cache=1676283669920" type="module" defer></script>
+    
+  </head>
+  <body>
+    
+    
+    <main>
+      <div class="container">
+
+
+        <br/>
+        <br/>
+        <br/>
+
+        <form class="diary">
+
+
+          <select name="month" id="month">
+            <option value="1">January</option>
+            <option value="2">Febuary</option>
+            <option value="3">March</option>
+            <option value="4">April</option>
+            <option value="5">May</option>
+            <option value="6">June</option>
+            <option value="7">July</option>
+            <option value="8">August</option>
+            <option value="9">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+          </select>
+
+          <select name="year" id="year">
+            <option value="2010">2010</option>
+            <option value="2030">2030</option>
+          </select>
+
+          <br/>
+          <br/>
+          
+          <table>
+            <thead>
+              <tr>
+              <th>Monday</th>
+              <th>Tuesday</th>
+              <th>Wednesday</th>
+              <th>Thursday</th>
+              <th>Friday</th>
+              <th>Saturday</th>
+              <th>Sunday</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <br/>
+          <br/>
+
+          <ul class="events d-none">
+            <li data-start-date="1/3/2023" data-end-date="3/3/2023"><strong>Event title</strong> <span>Event description</span></li>
+          </ul>
+
+
+          <dialog>
+            <input type="hidden" name="eventId" />
+            <label for="start">Start date</label>
+            <input type="date" name="start" id="start">
+            <hr/>
+            <label for="end">End</label>
+            <input type="date" name="end" id="end">
+            
+
+            <hr/>
+            <label for="titl">Title</label>
+            <input type="text" name="title" id="title">
+            <hr/>
+            <label for="desc">Desc</label>
+            <textarea name="desc" id="desc"></textarea>
+            <hr/>
+            <button class="cancel">Cancel</button>
+            <button class="save">Save</button>
+            <button class="delete">Delete</button>
+          </dialog>
+        </form>
+
+
+
+      </div>
+      
+
+    </main>
+
+  </body>
+</html>

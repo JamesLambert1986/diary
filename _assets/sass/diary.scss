@@ -1,0 +1,73 @@
+@use "./_vars" as *;
+@use "./_func" as *;
+
+:root {
+
+}
+
+//$chart-colour-1: purple;
+//$chart-colour-1: purple;
+
+
+.diary table {
+
+  width: 100%;
+  table-layout: fixed;
+
+  th {
+    background-color: blue;
+  }
+
+  th,
+  td {
+    height: 5rem;
+    padding: 0;
+    outline: 1px solid black;
+    position: relative;
+    vertical-align: top;
+
+    &:empty {
+      background: grey;
+    }
+
+    &.current {
+      background: pink;
+    }
+
+    .date {
+      position: absolute;
+      top: 1em;
+      left: 1em;
+    }
+  }
+
+
+  .event {
+    display: block;
+    background-color: purple;
+    padding: 0.5em;
+    margin-bottom: 1px;
+
+    span {
+      display: none;
+    }
+  }
+
+}
+
+.diary {
+
+  dialog[open] {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    max-width: 24rem;
+    margin: 0;
+
+    input[name="eventId"][value=""] ~ .delete {
+      display: none;
+    }
+  }
+
+}
